@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -9,12 +10,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private GameObject[] waypoints;
     private int _currentWaypointIndex = 0;
 
+    [FormerlySerializedAs("speed")]
     [Header("Stats")]
     [Tooltip("The speed the Enemy will be moving at")]
-    [SerializeField] float speed = 1f;
+    public float Speed = 5f;
     // You can adjust the rotation speed here
     [Tooltip("The speed the Enemy will be rotating at")]
     [SerializeField] private float rotationSpeed = 5f;
+    
+    
+    public Vector3 Position => transform.position;
+    
     
     // Update is called once per frame
     void Update()
@@ -29,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
         }
        
         transform.position =
-            Vector3.MoveTowards(transform.position, waypoints[_currentWaypointIndex].transform.position, speed * Time.deltaTime);
+            Vector3.MoveTowards(transform.position, waypoints[_currentWaypointIndex].transform.position, Speed * Time.deltaTime);
         // Rotate towards the waypoint
         RotateTowardsWaypoint();
     }
