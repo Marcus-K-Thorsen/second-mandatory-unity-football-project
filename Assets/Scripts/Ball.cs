@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
     void Update()
     {
         var localPosition = GetFootballLocalPosition();
-        if (localPosition.y <= 0.3f || localPosition.y >= 1f)
+        if (localPosition.y < 0.3f || localPosition.y > 1.2f)
         {
             SetFootballLocalPosition(Vector3.zero);
         }

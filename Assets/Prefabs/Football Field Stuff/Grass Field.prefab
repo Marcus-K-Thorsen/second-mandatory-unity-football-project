@@ -668,8 +668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  DirectionX: 15
-  DirectionZ: 15
+  DirectionX: 0
+  DirectionZ: 100
+  ParentWall: {fileID: 4049414012414049964}
 --- !u!1 &2808725864055271102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,8 +1478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  DirectionX: 10
-  DirectionZ: 10
+  DirectionX: 100
+  DirectionZ: 0
+  ParentWall: {fileID: 8093425502758185752}
 --- !u!1 &4807623896167534028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,8 +1687,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  DirectionX: -10
-  DirectionZ: 10
+  DirectionX: -100
+  DirectionZ: 0
+  ParentWall: {fileID: 2959636018859787610}
 --- !u!1 &5165879493401328869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,8 +2033,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.1
-  DirectionX: 10
-  DirectionZ: -10
+  DirectionX: 0
+  DirectionZ: -100
+  ParentWall: {fileID: 4139682542840442732}
 --- !u!1 &7460437736536388217
 GameObject:
   m_ObjectHideFlags: 0

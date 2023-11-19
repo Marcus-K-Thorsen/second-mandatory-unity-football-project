@@ -12,16 +12,19 @@ public class WallBouncer : MonoBehaviour
 
     public float DirectionX = 0f;
     public float DirectionZ = 0f;
+
+    [SerializeField] GameObject ParentWall;
     
     private Vector3 _position;
     public Vector3 Position
     {
         get
         {
-            _position = transform.position;
+            _position = ParentWall.transform.position;
             _position.x += DirectionX;
             _position.z += DirectionZ;
             return _position;
+            
         }
     }
 
