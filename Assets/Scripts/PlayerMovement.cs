@@ -40,10 +40,12 @@ public class PlayerMovement : MonoBehaviour
     private float LossPerSecond => maxSpeed * timeToStop;
     private Vector3 _movement = Vector3.zero;
 
-    private const KeyCode MovingUp = KeyCode.LeftArrow;
-    private const KeyCode MovingDown = KeyCode.RightArrow;
-    private const KeyCode MovingRight = KeyCode.UpArrow;
-    private const KeyCode MovingLeft = KeyCode.DownArrow;
+    // Set ud fra Main Kameraets vinkel
+    private const KeyCode MovingLeftKey = KeyCode.LeftArrow;
+    private const KeyCode MovingRightKey = KeyCode.RightArrow;
+    private const KeyCode MovingUpKey = KeyCode.UpArrow;
+    private const KeyCode MovingDownKey = KeyCode.DownArrow;
+    
     
     
     private float _fallingHeight;
@@ -91,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         
         
         // Up/Down (X-axis)
-        if (Input.GetKey(MovingUp))
+        if (Input.GetKey(MovingLeftKey))
         {
             // Up-slope Positive
             if (_movement.x >= 0)
@@ -106,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
                 if (_movement.x > 0) _movement.x = 0;
             }
         }
-        else if (Input.GetKey(MovingDown))
+        else if (Input.GetKey(MovingRightKey))
         {
             // Down-slope Negative
             if (_movement.x <= 0)
@@ -138,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Left/Right (Y-axis)
-        if (Input.GetKey(MovingLeft))
+        if (Input.GetKey(MovingDownKey))
         {
             // Up-slope Positive
             if (_movement.z >= 0)
@@ -153,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 if (_movement.z > 0) _movement.z = 0;
             }
         }
-        else if (Input.GetKey(MovingRight))
+        else if (Input.GetKey(MovingUpKey))
         {
             // Down-slope Negative
             if (_movement.z <= 0)

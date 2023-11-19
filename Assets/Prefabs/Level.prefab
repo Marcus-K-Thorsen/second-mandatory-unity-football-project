@@ -781,6 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass Field
       objectReference: {fileID: 0}
+    - target: {fileID: 1439500940690938812, guid: dacbd61026882bd4bad641238e1bc3fc, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1675275359653278279, guid: dacbd61026882bd4bad641238e1bc3fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -820,6 +824,10 @@ PrefabInstance:
     - target: {fileID: 1675275359653278279, guid: dacbd61026882bd4bad641238e1bc3fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678167752157947094, guid: dacbd61026882bd4bad641238e1bc3fc, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

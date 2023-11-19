@@ -16,6 +16,7 @@ public class Ball : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void SetFootballLocalPosition(Vector3 value)
     {
+        value.y += 0.5f;
         football.transform.localPosition = value;
     }
 
@@ -39,9 +40,7 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.layer == 10)
         {
-            Debug.Log("Triggered layer 10");
             WallBouncer wall = other.gameObject.GetComponent<WallBouncer>();
-            Debug.Log(wall);
             if (wall is not null)
             {
                 // By subtracting the two vectors, we get a delta that
@@ -59,12 +58,9 @@ public class Ball : MonoBehaviour
         }
         else if (other.gameObject.layer == 8)
         {
-            Debug.Log("Triggered layer 8"); 
             EnemyMovement enemyPlayer = other.gameObject.GetComponent<EnemyMovement>(); 
-            Debug.Log(enemyPlayer); 
             if (enemyPlayer is not null) 
             { 
-                Debug.Log($"{enemyPlayer.name} kicked ball"); 
                 // By subtracting the two vectors, we get a delta that
                 // // 'points' from player towards this object, basically
                 // The direction we need to move forwards
@@ -84,9 +80,7 @@ public class Ball : MonoBehaviour
     {
          if (other.gameObject.layer == 7) 
          {
-            Debug.Log("Triggered layer 7");
             PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
-            Debug.Log(player);
             if (player is not null)
             {
                 // By subtracting the two vectors, we get a delta that

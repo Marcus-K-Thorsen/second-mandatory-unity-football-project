@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
-    private void GoToMainMenu()
+    public void GoToMainMenu()
     {
         if (Input.GetKey(GoToMainMenuKey))
         {
@@ -70,6 +70,12 @@ public class GameController : MonoBehaviour
             }
             
         }
+    }
+
+    public void GoalWasScored()
+    {
+        SceneManager.LoadScene(0); 
+        ToggleMainCamera();
     }
 
     public void PlayLevel1(){
