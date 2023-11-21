@@ -141,10 +141,10 @@ MonoBehaviour:
   movingPoint: {fileID: 8195485575814178347}
   rotationPoint: {fileID: 7173054923065721913}
   maxSpeed: 15
-  timeToMax: 0.55
+  timeToMax: 0.85
   timeToStop: 0.85
   reverseMomentum: 2.2
-  rotationSpeed: 0.1
+  rotationSpeed: 0.5
   fallSpeed: 0.05
 --- !u!143 &8195485575814178347
 CharacterController:

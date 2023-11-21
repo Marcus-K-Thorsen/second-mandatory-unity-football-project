@@ -9,13 +9,31 @@ public class GoalSensor : MonoBehaviour
     [Header("References")] 
     [Tooltip("The GameObject.")]
     public GameObject gameController;
-    
-    private int _goalLayer;
-    
+
+    private string GoalOwner
+    {
+        get
+        {
+            if (gameObject.layer == 11) // layer 11 er lig med Player's goal sensor
+            {
+                return "player";
+            } else if (gameObject.layer == 12) // layer 12 er lig med Enemies' goal sensor
+            {
+                return "enemy";
+            }
+            else // Ellers er det en goal sensor der ikke er blevet sat til et valid layer
+            {
+                return "default";
+            }
+        }
+    }
+
+    private bool _goalWasNotScored;
+
     // Start is called before the first frame update
     void Start()
     {
-        _goalLayer = gameObject.layer;
+        _goalWasNotScored = true;
     }
 
     // Update is called once per frame
@@ -27,10 +45,20 @@ public class GoalSensor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Først tjekker vi om det er bolden, som er på layer 9, der har Triggered vores GoalSensor.
-        if (other.gameObject.layer == 9)
+        if (other.gameObject.layer == 9 && _goalWasNotScored)
         {
+            _goalWasNotScored = false;
             GameController controller = gameController.GetComponent<GameController>();
-            controller.GoalWasScored();
+            
+            if (GoalOwner == "player")
+            {
+                controller.GoalWasScored(false);
+            }
+
+            if (GoalOwner == "enemy")
+            {
+                controller.GoalWasScored(true);
+            }
         }
     }
 }

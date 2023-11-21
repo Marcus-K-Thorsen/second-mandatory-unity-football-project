@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     
     public Rigidbody body;
     [FormerlySerializedAs("Football")] [SerializeField] GameObject football;
+    [SerializeField] private AudioSource kickingSound;
 
     // ReSharper disable Unity.PerformanceAnalysis
     private Vector3 GetFootballLocalPosition() => football.transform.localPosition;
@@ -61,6 +62,9 @@ public class Ball : MonoBehaviour
             EnemyMovement enemyPlayer = other.gameObject.GetComponent<EnemyMovement>(); 
             if (enemyPlayer is not null) 
             { 
+                // Afspiller lyden af at blive sparket
+                kickingSound.Play();
+                
                 // By subtracting the two vectors, we get a delta that
                 // // 'points' from player towards this object, basically
                 // The direction we need to move forwards
@@ -83,6 +87,9 @@ public class Ball : MonoBehaviour
             PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
             if (player is not null)
             {
+                // Afspiller lyden af at blive sparket
+                kickingSound.Play();
+                
                 // By subtracting the two vectors, we get a delta that
                 // 'points' from player towards this object, basically
                 // The direction we need to move forwards

@@ -8,6 +8,11 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Camera firstPersonCamera;
+    [SerializeField] private GameObject winMessage;
+    [SerializeField] private GameObject looseMessage;
+    [SerializeField] private float delayTimeForMainMenu = 5.0f;
+    [SerializeField] private AudioSource endOfMatchWhistle;
+    
     private AudioListener _audioListenerMainCamera;
     private AudioListener _audioListenerFirstPersonCamera;
     private bool _mainCameraOn = true;
@@ -17,9 +22,11 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        DisableMessages();
+        
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         mainCamera = Camera.main;
-        if (mainCamera != null)
+        if (mainCamera is not null)
         {
             _audioListenerMainCamera = mainCamera.GetComponent<AudioListener>();
         }
@@ -34,7 +41,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (firstPersonCamera != null)
+        if (firstPersonCamera is not null)
         {
             _audioListenerFirstPersonCamera = firstPersonCamera.GetComponent<AudioListener>();
         }
@@ -72,7 +79,34 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void GoalWasScored()
+    private void DisableMessages()
+    {
+        if (winMessage is not null && looseMessage is not null)
+        {
+            winMessage.SetActive(false);
+            looseMessage.SetActive(false);
+        }
+    }
+
+    public void GoalWasScored(bool didPlayerScore)
+    {
+        if (winMessage is not null && looseMessage is not null)
+        {
+            if (didPlayerScore)
+            {
+                winMessage.SetActive(true);
+                Invoke(nameof(LoadMainMenu), delayTimeForMainMenu); // Sender os tilbage til Main Menu efter 5 sekunder
+            }
+            else
+            {
+                looseMessage.SetActive(true);
+                Invoke(nameof(LoadMainMenu), delayTimeForMainMenu); // Sender os tilbage til Main Menu efter 5 sekunder
+            }
+            endOfMatchWhistle.Play();
+        }
+    }
+
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene(0); 
         ToggleMainCamera();
