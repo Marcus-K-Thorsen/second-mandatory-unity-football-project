@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float delayTimeForMainMenu = 5.0f;
     [SerializeField] private AudioSource endOfMatchWhistle;
     
+    
     private AudioListener _audioListenerMainCamera;
     private AudioListener _audioListenerFirstPersonCamera;
     private bool _mainCameraOn = true;
@@ -102,7 +103,7 @@ public class GameController : MonoBehaviour
                 looseMessage.SetActive(true);
                 Invoke(nameof(LoadMainMenu), delayTimeForMainMenu); // Sender os tilbage til Main Menu efter 5 sekunder
             }
-            endOfMatchWhistle.Play();
+            endOfMatchWhistle.PlayDelayed(delayTimeForMainMenu * 0.5f);
         }
     }
 

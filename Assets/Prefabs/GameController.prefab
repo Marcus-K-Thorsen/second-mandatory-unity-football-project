@@ -51,7 +51,7 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 0}
   winMessage: {fileID: 925405907950951656}
   looseMessage: {fileID: 8554047574463230116}
-  delayTimeForMainMenu: 3
+  delayTimeForMainMenu: 5
   endOfMatchWhistle: {fileID: 8616617175361688331}
 --- !u!82 &8251181439492086020
 AudioSource:

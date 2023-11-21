@@ -9,6 +9,7 @@ public class GoalSensor : MonoBehaviour
     [Header("References")] 
     [Tooltip("The GameObject.")]
     public GameObject gameController;
+    [SerializeField] private AudioSource cheeringAtGoal;
 
     private string GoalOwner
     {
@@ -52,11 +53,13 @@ public class GoalSensor : MonoBehaviour
             
             if (GoalOwner == "player")
             {
+                cheeringAtGoal.Play();
                 controller.GoalWasScored(false);
             }
 
             if (GoalOwner == "enemy")
             {
+                cheeringAtGoal.Play();
                 controller.GoalWasScored(true);
             }
         }
