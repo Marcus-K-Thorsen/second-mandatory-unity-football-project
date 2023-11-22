@@ -5,25 +5,19 @@ using UnityEngine.Serialization;
 
 public class Mortality : MonoBehaviour
 {
-    [SerializeField] public float respawnWaitTime = 3.0f;
-
+    [SerializeField] public float respawnWaitTime = 3.0f; 
+    public AudioSource deathSound;
     private Vector3 _spawnPoint;
 
     private Quaternion _spawnRotation;
     private bool _isAlive = true;
-    [SerializeField] private PlayerMovement player;
-    [SerializeField] private GameObject character;
+    public GameObject character;
+    public PlayerMovement player;
 
-    private bool IsPlayer()
-    {
-        return player is not null;
-    }
-    
-    
-    
-    
-    public AudioSource deathSound;
-    
+
+    public bool IsPlayer => character.name.Equals("Player");
+
+
     // When colliding with something
     private void OnTriggerEnter(Collider other)
     {
@@ -39,8 +33,8 @@ public class Mortality : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _spawnPoint = IsPlayer() ? player.movingPoint.transform.position : character.transform.position;
-        _spawnRotation = IsPlayer() ? player.rotationPoint.rotation : character.transform.rotation;
+        _spawnPoint = IsPlayer ? player.movingPoint.transform.position : character.transform.position;
+        _spawnRotation = IsPlayer ? player.rotationPoint.rotation : character.transform.rotation;
     }
 
     // Update is called once per frame
@@ -52,9 +46,9 @@ public class Mortality : MonoBehaviour
 
     private void Die()
     {
-        _isAlive = false;
         deathSound.Play();
-        if (IsPlayer())
+        _isAlive = false;
+        if (IsPlayer)
         {
             // Stop our movement
             player.movement = Vector3.zero;
@@ -79,7 +73,7 @@ public class Mortality : MonoBehaviour
     private void Respawn()
     {
         _isAlive = true;
-        if (IsPlayer())
+        if (IsPlayer)
         {
             // Set initial position and rotation
             player.movingPoint.transform.position = _spawnPoint;

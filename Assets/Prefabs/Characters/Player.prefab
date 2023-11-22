@@ -188,9 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnWaitTime: 3
-  player: {fileID: 4193864990968079492}
-  character: {fileID: 2210576865905111146}
   deathSound: {fileID: 6662022536904511545}
+  character: {fileID: 2210576865905111146}
+  player: {fileID: 4193864990968079492}
+  isPlayer: 1
 --- !u!82 &6662022536904511545
 AudioSource:
   m_ObjectHideFlags: 0
