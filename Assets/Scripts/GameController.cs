@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Camera firstPersonCamera;
@@ -20,6 +21,9 @@ public class GameController : MonoBehaviour
     private const KeyCode ChangeCameraKey = KeyCode.Space;
     private const KeyCode GoToMainMenuKey = KeyCode.Escape;
     private int _currentSceneIndex;
+    
+    private static bool _wonLevel1;
+    private static bool _wonLevel2;
 
     void Start()
     {
@@ -95,6 +99,16 @@ public class GameController : MonoBehaviour
         {
             if (didPlayerScore)
             {
+                switch (_currentSceneIndex)
+                {
+                    case 1:
+                        _wonLevel1 = true;
+                        break;
+                    case 2:
+                        _wonLevel2 = true;
+                        break;
+                }
+
                 winMessage.SetActive(true);
                 Invoke(nameof(LoadMainMenu), delayTimeForMainMenu); // Sender os tilbage til Main Menu efter 5 sekunder
             }
@@ -119,14 +133,22 @@ public class GameController : MonoBehaviour
     }
     
     public void PlayLevel2(){
-        SceneManager.LoadScene(2);
-        ToggleMainCamera();
+        if (_wonLevel1)
+        {
+            SceneManager.LoadScene(2);
+            ToggleMainCamera();
+        }
+        
     }
 
     public void PlayLevel3()
     {
-        SceneManager.LoadScene(3);
-        ToggleMainCamera();
+        if (_wonLevel2)
+        {
+            SceneManager.LoadScene(3);
+            ToggleMainCamera();
+        }
+        
     }
 
 
