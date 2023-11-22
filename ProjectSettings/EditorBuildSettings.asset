@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecondFootballFieldScene.unity
     guid: fb6f38c9a96cb3d4bbde561582623844
+  - enabled: 1
+    path: Assets/Scenes/ThirdFootballFieldScene.unity
+    guid: 281478e473d1d2344aa59c53860fe111
   m_configObjects: {}

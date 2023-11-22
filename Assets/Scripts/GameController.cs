@@ -123,6 +123,12 @@ public class GameController : MonoBehaviour
         ToggleMainCamera();
     }
 
+    public void PlayLevel3()
+    {
+        SceneManager.LoadScene(3);
+        ToggleMainCamera();
+    }
+
 
     private void ChangeCamera()
     {

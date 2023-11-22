@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 3731919308093221576}
   - component: {fileID: 8662447059451555839}
   - component: {fileID: 1769964056460726814}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Grass Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1583125465124528818}
   - component: {fileID: 2860394596320621209}
   - component: {fileID: 2426413153787721117}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6728847928265628366}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Box Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 7456082341189748211}
   - component: {fileID: 6467135229539111678}
   - component: {fileID: 4204234760904833432}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Inner Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1082,7 +1082,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1188,7 +1188,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 7202428684872205998}
   - component: {fileID: 4834943673493870950}
   - component: {fileID: 5043067130411384306}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Inner Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 7947299936230555787}
   - component: {fileID: 5624491943563511479}
   - component: {fileID: 5731068979048729661}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Middle Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5135939534901572319}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Field Lines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1807,7 +1807,7 @@ GameObject:
   - component: {fileID: 2376502459150878039}
   - component: {fileID: 1969994179137219861}
   - component: {fileID: 4706018005608954482}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Outer Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,7 +1942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3710778585779203660}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Middle Circle Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2045,7 +2045,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1967862786137527222}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Middle Line Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,7 +2078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5109916779502678433}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Walls Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2199,7 +2199,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2222,7 +2222,7 @@ GameObject:
   - component: {fileID: 6650587843199203063}
   - component: {fileID: 2844488105975252092}
   - component: {fileID: 1523110001404620004}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Outer Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

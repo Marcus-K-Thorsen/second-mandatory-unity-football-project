@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [Tooltip("This is the Game Object that contains the whole player, as in this the whole player that moves around.")]
-    [SerializeField] CharacterController movingPoint;
+    public CharacterController movingPoint;
     
     [Tooltip("This is the Game Object that contains the model of the player, as in this the body of the player that turns around.")]
-    [SerializeField] Transform rotationPoint;
+    public Transform rotationPoint;
     
     [Header("Stats")]
     [Tooltip("The maximum speed a player can move at.")]
@@ -33,12 +34,12 @@ public class PlayerMovement : MonoBehaviour
     
     public Vector3 Position => transform.position;
     
-    public float Speed => Mathf.Abs(_movement.x) + Mathf.Abs(_movement.z);
+    public float Speed => Mathf.Abs(movement.x) + Mathf.Abs(movement.z);
     
     
     private float GainPerSecond => maxSpeed * timeToMax;
     private float LossPerSecond => maxSpeed * timeToStop;
-    private Vector3 _movement = Vector3.zero;
+    public Vector3 movement = Vector3.zero;
 
     // Set ud fra Main Kameraets vinkel
     private const KeyCode MovingLeftKey = KeyCode.LeftArrow;
@@ -96,46 +97,46 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(MovingLeftKey))
         {
             // Up-slope Positive
-            if (_movement.x >= 0)
+            if (movement.x >= 0)
             {
-                _movement.x += GainPerSecond * Time.deltaTime;
-                if (_movement.x > maxSpeed) _movement.x = maxSpeed;
+                movement.x += GainPerSecond * Time.deltaTime;
+                if (movement.x > maxSpeed) movement.x = maxSpeed;
             }
             else
             {
                 // Break-slope Negative
-                _movement.x += GainPerSecond * reverseMomentum * Time.deltaTime;
-                if (_movement.x > 0) _movement.x = 0;
+                movement.x += GainPerSecond * reverseMomentum * Time.deltaTime;
+                if (movement.x > 0) movement.x = 0;
             }
         }
         else if (Input.GetKey(MovingRightKey))
         {
             // Down-slope Negative
-            if (_movement.x <= 0)
+            if (movement.x <= 0)
             {
-                _movement.x -= GainPerSecond * Time.deltaTime;
-                if (_movement.x < -maxSpeed) _movement.x = -maxSpeed;
+                movement.x -= GainPerSecond * Time.deltaTime;
+                if (movement.x < -maxSpeed) movement.x = -maxSpeed;
             }
             else
             {
                 // Break-slope Positive
-                _movement.x -= GainPerSecond * reverseMomentum * Time.deltaTime;
-                if (_movement.x < 0) _movement.x = 0;
+                movement.x -= GainPerSecond * reverseMomentum * Time.deltaTime;
+                if (movement.x < 0) movement.x = 0;
             }
         }
         else
         {
-            if (_movement.x > 0)
+            if (movement.x > 0)
             {
                 // Fadeout from Positive
-                _movement.x -= LossPerSecond * Time.deltaTime;
-                if (_movement.x < 0) _movement.x = 0;
+                movement.x -= LossPerSecond * Time.deltaTime;
+                if (movement.x < 0) movement.x = 0;
             }
-            else if (_movement.x < 0)
+            else if (movement.x < 0)
             {
                 // Fadeout from Negative
-                _movement.x += LossPerSecond * Time.deltaTime;
-                if (_movement.x > 0) _movement.x = 0;
+                movement.x += LossPerSecond * Time.deltaTime;
+                if (movement.x > 0) movement.x = 0;
             }
         }
 
@@ -143,58 +144,58 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(MovingDownKey))
         {
             // Up-slope Positive
-            if (_movement.z >= 0)
+            if (movement.z >= 0)
             {
-                _movement.z += GainPerSecond * Time.deltaTime;
-                if (_movement.z > maxSpeed) _movement.z = maxSpeed;
+                movement.z += GainPerSecond * Time.deltaTime;
+                if (movement.z > maxSpeed) movement.z = maxSpeed;
             }
             else
             {
                 // Break-slope Negative
-                _movement.z += GainPerSecond * reverseMomentum * Time.deltaTime;
-                if (_movement.z > 0) _movement.z = 0;
+                movement.z += GainPerSecond * reverseMomentum * Time.deltaTime;
+                if (movement.z > 0) movement.z = 0;
             }
         }
         else if (Input.GetKey(MovingUpKey))
         {
             // Down-slope Negative
-            if (_movement.z <= 0)
+            if (movement.z <= 0)
             {
-                _movement.z -= GainPerSecond * Time.deltaTime;
-                if (_movement.z < -maxSpeed) _movement.z = -maxSpeed;
+                movement.z -= GainPerSecond * Time.deltaTime;
+                if (movement.z < -maxSpeed) movement.z = -maxSpeed;
             }
             else
             {
                 // Break-slope Positive
-                _movement.z -= GainPerSecond * reverseMomentum * Time.deltaTime;
-                if (_movement.z < 0) _movement.z = 0;
+                movement.z -= GainPerSecond * reverseMomentum * Time.deltaTime;
+                if (movement.z < 0) movement.z = 0;
             }
         }
         else
         {
-            if (_movement.z > 0)
+            if (movement.z > 0)
             {
                 // Fadeout from Positive
-                _movement.z -= LossPerSecond * Time.deltaTime;
-                if (_movement.z < 0) _movement.z = 0;
+                movement.z -= LossPerSecond * Time.deltaTime;
+                if (movement.z < 0) movement.z = 0;
             }
-            else if (_movement.z < 0)
+            else if (movement.z < 0)
             {
                 // Fadeout from Negative
-                _movement.z += LossPerSecond * Time.deltaTime;
-                if (_movement.z > 0) _movement.z = 0;
+                movement.z += LossPerSecond * Time.deltaTime;
+                if (movement.z > 0) movement.z = 0;
             }
         }
         
         
 
-        if (_movement.x != 0 || _movement.z != 0)
+        if (movement.x != 0 || movement.z != 0)
         {
             // Only move when necessary
-            movingPoint.Move(_movement * Time.deltaTime);
+            movingPoint.Move(movement * Time.deltaTime);
             rotationPoint.rotation = Quaternion.Slerp(
                 rotationPoint.rotation,
-                Quaternion.LookRotation(_movement),
+                Quaternion.LookRotation(movement),
                 rotationSpeed
                 ); 
         }
